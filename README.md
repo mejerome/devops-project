@@ -1,10 +1,22 @@
-# simple-devops-project
-In planning out this project, I am trying to setup a CI/CD pipeline with Jenkins, Docker and Ansible to deploy war files on a tomcat server.
+DEVOPS PROJECT
 
-For the purposes of avoid cost, I am utilizing virtualbox and vagrant to deploy my servers.
+This is a devops project I am embarking on to practice some of the skills I have acquired from different systems working together.
+This project shows off usage of the following devops technologies:
+    • git
+    • Jenkins
+    • Maven
+    • Ansible
+    • Docker
+    • Kubernetes
+    • Vagrant
+    • Virtualbox
 
-Objectives to be completed
-1. Install pre-requisites: jenkins, ansible, docker etc.
-2. Configure Jenkins with Maven, Git and Ansible
-3. Setup a CI/CD pipeline
+You can find a repo of documentation for all systems in the docs folder.
 
+    1. Installed Jenkins
+    2. Install Docker
+    3. Configured Jenkins with git, maven and docker over ssh
+    4. Install Ansible
+    5. Configure ansible to deploy docker container
+    6. Complete CI/CD pipeline to automatically update production when changes are pushed to master branch.
+    7. 

@@ -1,4 +1,5 @@
-# pull the latest tomcat image from dockerhub
-FROM tomcat:8.0
+# Pull base image 
+FROM tomcat:latest
 
 COPY ./webapp.war /usr/local/tomcat/webapps
+RUN cp -R /usr/local/tomcat/webapps.dist/* /usr/local/tomcat/webapps
