@@ -1,0 +1,31 @@
+---
+- hosts: all
+
+  tasks:
+    - name: send Dockerfile to docker-host
+      copy:
+        src: Dockerfile
+        dest: /home/ansadmin/Dockerfile
+        owner: ansadmin
+
+    - name: send created war file
+      copy:
+        src: webapp.war
+        dest: /home/ansadmin/webapp.war
+        owner: ansadmin
+
+    - name: building docker image
+      command: docker build -t simple-devops-image .
+      args:
+        chdir: /home/ansadmin
+   
+    - name: stop container incase its already running
+      command: docker stop simple-devops-container
+      ignore_errors: yes
+            
+    - name: delete container incase it already exists
+      command: docker rm simple-devops-container
+      ignore_errors: yes
+
+    - name: creating docker container from simple-devops-image
+      command: docker run -d --name simple-devops-container -p 8080:8080 simple-devops-image
